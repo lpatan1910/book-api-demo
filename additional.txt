@@ -1,0 +1,18 @@
+-Describe (no need to code) how you can secure this endpoint using Spring Security using Oauth2
+    OAuth2 defines the following server-side roles:
+
+    Resource Owner: The service responsible for controlling resources’ access
+    Resource Server: The service who actually supplies the resources
+    Authorization Server: The service handling authorization process acting as a middleman between client and resource owner
+OAuth2 defines the following server-side roles:
+
+Resource Owner: The service responsible for controlling resources’ access
+Resource Server: The service who actually supplies the resources
+Authorization Server: The service handling authorization process acting as a middleman between client and resource owner
+
+
+
+- Describe how you can document this API for consumers of the API
+    For documenting, I can integrate the APIs with swagger sothat the consumers can have information in detail such as APIs, request, response
+- Describe any design pattern you have leveraged in your solution.
+    This book api application was built with the design patterns such as Singleton, Transactions,
