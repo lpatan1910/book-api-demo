@@ -16,9 +16,9 @@ public class BooksControllerAdvice {
     }
 
     @ResponseBody
-    @ExceptionHandler(BookIsbnAlreadyExistsException.class)
+    @ExceptionHandler(BookIsbnKeyViolationException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    BookError bookIsbnAlreadyExistsExceptionHandler(BookIsbnAlreadyExistsException ex) {
+    BookError bookIsbnKeyViolationExceptionHandler(BookIsbnKeyViolationException ex) {
         return new BookError("error", ex.getMessage());
     }
 }

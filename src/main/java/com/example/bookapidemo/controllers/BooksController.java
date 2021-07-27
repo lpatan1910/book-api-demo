@@ -1,7 +1,7 @@
 package com.example.bookapidemo.controllers;
 
 import com.example.bookapidemo.domains.Book;
-import com.example.bookapidemo.exception.BookIsbnAlreadyExistsException;
+import com.example.bookapidemo.exception.BookIsbnKeyViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,9 +30,9 @@ public class BooksController {
     }
 
     @PostMapping("/books")
-    public ResponseEntity getBooksById(@RequestBody Book book) throws BookIsbnAlreadyExistsException {
+    public ResponseEntity getBooksById(@RequestBody Book book) throws BookIsbnKeyViolationException {
         if (booksService.getBookById(book.getIsbn()).isPresent()) {
-            throw new BookIsbnAlreadyExistsException(book.getIsbn());
+            throw new BookIsbnKeyViolationException(book.getIsbn());
         }
         booksService.createBook(book);
         return ResponseEntity.status(HttpStatus.OK).body(book);
